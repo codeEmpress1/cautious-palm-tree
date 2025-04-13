@@ -8,25 +8,17 @@ description: |
 grade: stable
 confinement: strict
 license: MIT
-icon: snap/gui/icon.png
+icon: snap/gui/icon.jpg
 title: Cautious Palm Tree
 
 apps:
   test-server:
-    command: bin/server.sh
+    command: server.sh
     daemon: simple
     plugs:
       - network
     slots:
       - test-landing
-
-parts:
-  test-server:
-    plugin: dump
-    source: .
-    organize:
-      server.sh: bin/server.sh
-      www/index.html: www/index.html
 
 plugs:
   network:
@@ -36,7 +28,7 @@ slots:
   test-landing:
     interface: content
     content: cautious-palm-tree
-    source: $SNAP/www
+    source: $SNAP
     source-type: local
     read:
-      - $SNAP/www
+      - $SNAP
