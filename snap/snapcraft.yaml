@@ -11,9 +11,16 @@ license: MIT
 icon: snap/gui/icon.jpg
 title: Cautious Palm Tree
 
+parts:
+  test-server:
+    plugin: dump
+    source: .
+    organize:
+      server.sh: bin/server.sh
+
 apps:
   test-server:
-    command: server.sh
+    command: bin/server.sh
     daemon: simple
     plugs:
       - network
